@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "910573378563",
+    "project_id": "pikachat-f7e4b",
+    "storage_bucket": "pikachat-f7e4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910573378563:android:bfd95531a83ca142dd4236",
+        "android_client_info": {
+          "package_name": "com.example.pikachat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910573378563-3v0rf29u22sa5f5o981lba3bteoong2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnpAryzx6g9rk3pRN6vYRV4e8smDeF5RE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910573378563-3v0rf29u22sa5f5o981lba3bteoong2o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910573378563-ongv25ppo079tlrni6r709jevm0ldt03.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.amy.pikachat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
