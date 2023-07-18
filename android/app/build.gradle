@@ -27,6 +27,26 @@ apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    flavorDimensions "app"
+
+    productFlavors {
+        dev {
+            dimension "app"
+            applicationId "com.example.pikachat.dev"
+            resValue "string", "app_name", "Pikachat Dev"
+        }
+        staging {
+            dimension "app"
+            applicationId "com.example.pikachat.staging"
+            resValue "string", "app_name", "Pikachat Staging"
+        }
+        prod {
+            dimension "app"
+            applicationId "com.example.pikachat"
+            resValue "string", "app_name", "Pikachat App"
+        }
+    }
+
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
