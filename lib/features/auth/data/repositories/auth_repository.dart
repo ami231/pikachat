@@ -14,14 +14,11 @@ abstract class AuthRepository {
   EitherFailureOr<UserCredential> registerWithEmailAndPassword(String email, String password);
   EitherFailureOr<UserCredential> signInWithEmailAndPassword(String email, String password);
   Future<void> signOut();
-  Future<String> getUserToken();
-  Future<void> saveUserToken(User user);
   bool isUserLoggedIn();
 }
 
 class AuthRepositoryImpl with ErrorToFailureMixin implements AuthRepository {
   late FirebaseAuth _firebaseAuth;
-  late FlutterSecureStorage _secureStorage;
 
   AuthRepositoryImpl() {
     initialize();
@@ -29,7 +26,6 @@ class AuthRepositoryImpl with ErrorToFailureMixin implements AuthRepository {
 
   Future<void> initialize() async {
     _firebaseAuth = FirebaseAuth.instance;
-    _secureStorage = const FlutterSecureStorage();
   }
 
   @override
@@ -37,17 +33,6 @@ class AuthRepositoryImpl with ErrorToFailureMixin implements AuthRepository {
     final user = _firebaseAuth.currentUser;
     return Right(user!);
   });
-
-  @override
-  Future<String> getUserToken() async {
-    return await _secureStorage.read(key: 'token') ?? 'None';
-  }
-
-  @override
-  Future<void> saveUserToken(User user) async { // inace bi string bio argument
-    final token = await user.getIdToken();
-    await _secureStorage.write(key: 'token', value: token);
-  }
 
   @override
   EitherFailureOr<UserCredential> registerWithEmailAndPassword(String email, String password) => execute(() async {
@@ -63,7 +48,7 @@ class AuthRepositoryImpl with ErrorToFailureMixin implements AuthRepository {
   
   @override
   Future<void> signOut() async {
-    await  _firebaseAuth.signOut();
+    await _firebaseAuth.signOut();
   }
   
   @override

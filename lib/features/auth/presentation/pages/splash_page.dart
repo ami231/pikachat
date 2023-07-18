@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pikachat/common/utils/app_colors.dart';
 import 'package:pikachat/features/auth/domain/notifiers/auth_notifier.dart';
 import 'package:pikachat/features/auth/presentation/pages/login_page.dart';
 import 'package:pikachat/features/chat/presentation/pages/chat_page.dart';
@@ -37,8 +38,9 @@ class _MyAppState extends ConsumerState<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: AppColors.primaryMainColor,
       body: Center(
-        child: Text('SPLASH'),
+        child: Text('SPLASH', style: TextStyle(color: Colors.white),),
       ),
     );
   }

@@ -26,7 +26,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = result.fold(
       (failure) => const AuthState.error(),
       (userCredential) {
-        _authRepository.saveUserToken(userCredential.user!); //inace bi isao odma string iz jsona a ne user
         return AuthState.loggedIn(user: userCredential.user);
       },
     );
@@ -37,7 +36,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = result.fold(
       (failure) => const AuthState.error(),
       (userCredential) {
-        _authRepository.saveUserToken(userCredential.user!); //inace bi isao odma string iz jsona a ne user
         return AuthState.loggedIn(user: userCredential.user);
       },
     );
